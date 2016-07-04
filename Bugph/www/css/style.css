@@ -1,0 +1,79 @@
+.view_login {
+	background-image: url(../img/backlogin.png);
+	background-size: cover;
+}
+.content_login {
+	background-color: rgba(0,0,0,0.4);
+}
+.content_timeline {
+	background-color: #e9e9e9;
+}
+.logo {
+	text-align: center;
+}
+.logo img {
+	width: 180px;
+	margin-top: 20px;
+}
+.formLogin {
+	width: 80%;
+	margin:auto;
+}
+.formLogin a {
+	color: #fff;
+}
+.formLogin .item {
+	background: none;
+	border:none;
+	color: #fff;
+}
+.item-no-padding {
+	padding: 0;
+}
+.padding-top {
+	padding-top: 10px;
+}
+.center {
+	text-align: center;
+}
+.formLogin .item.item-floating-label {
+	border-bottom: 1px solid #fff;
+}
+.formLogin .item.item-floating-label input, 
+.formLogin .item.item-floating-label span {
+	color: #fff;
+}
+.bar.bar-balanced {
+	background-image: none;
+	background-color: #007169;
+	border-color:#007169;
+}
+.bar.bar-balanced.bar-super-balanced {
+	background-color: #01544e;
+	border-color:#01544e;
+}
+.bar.bar-balanced img {
+	height: 70%;
+	margin-top: 10px;
+}
+.row {
+	text-align: center;
+	padding: 0;
+}
+.row .selected {
+	background-color: #003935;
+	border-radius: 4px;
+}
+.margin-left {
+	margin-left: 10px;
+}
+.border-top {
+	border-top:1px solid #ccc;
+}
+.item-buttons {
+	padding: 5px;
+	color: #717171;
+}
+.item .badge {
+	right: 10px;
+}
