@@ -1,0 +1,95 @@
+<ion-view view-title="">
+	
+	<ion-header-bar align-title="left" class="bar-balanced">
+		<h1 class="title">
+			<img src="img/nome_logo_branca.png">
+		</h1>
+		<button class="button button-icon icon ion-ios-plus" ng-click="novoBug()"></button>
+	</ion-header-bar>
+	
+	<div class="novos-bugs" ng-show="quantidadeNovosBugs" ng-click="listarTodosBugs()">
+		<span ng-show="quantidadeNovosBugs===1">
+			Um novo <b>Bug</b> acabou de acontecer, clique aqui para ver!
+		</span>
+		<span ng-show="quantidadeNovosBugs>1">
+			{{quantidadeNovosBugs}} novos <b>Bugs</b> acabaram de aconceter, 
+			clique aqui para ver!
+		</span>
+	</div>
+
+	<ion-content class="content_timeline">
+
+		<div class="list card" ng-show="bug.foto">
+			<div class="item item-icon-right item-avatar">
+				<img ng-src="{{getPictureFacebook(userID)}}">
+		    	<h2>{{name}}</h2>
+		    	<p>Novo bug!</p>
+				<i class="icon ion-ios-close-empty" ng-click="cancelarCadastro()"></i>
+			</div>
+			<div class="item  item-image">
+				<img ng-src="{{bug.foto}}">
+			</div>
+			<div class="item item-input">
+				<textarea ng-model="bug.descricao" placeholder="Digite um comentário sobre esta foto..."></textarea>
+			</div>
+			<div class="item item-button">
+				<button class="button button-block button-balanced" ng-click="postarBug()" ng-show="!postando">
+					POSTAR BUG
+				</button>
+				<button class="button button-block button-balanced" ng-show="postando">
+					POSTANDO...
+				</button>
+			</div>
+		</div>
+
+		<p class="nenhum-bug" ng-show="nenhumBug">
+			<i class="icon ion-image"></i>
+			Nenhum bug aconteceu nos últimos 60 minutos <b>:(</b>
+		</p>
+
+		<div class="list card" ng-show="bugs.length" ng-repeat="item in bugs">
+
+		  <div class="item item-text-wrap item-avatar">
+		  	<img ng-src="{{getPictureFacebook(item.userID)}}">
+		    <h2>{{item.name}}</h2>
+		    <div class="badge">{{converterData(item.data)}}</div>
+		    <p>{{item.descricao}}</p>
+		  </div>
+
+		  <div class="item item-image">
+		    <img ng-src="{{item.foto}}">
+		  </div>
+
+		  <div class="item" ng-show="item.kkk || item.putz || item.comentarios.length">
+		  	<span class="positive" ng-show="item.kkk">
+		  		<i class="icon ion-happy-outline"></i> {{item.kkk}}
+		  	</span>
+		  	<span class="assertive margin-left" ng-show="item.putz">
+		  		<i class="icon ion-sad-outline"></i> {{item.putz}}
+		  	</span>
+		  	<span class="item-note" ng-click="comentarios(item)" ng-show="!item.comentarios.length">
+		  		Nenhum comentário
+		  	</span>
+		    <span class="item-note" ng-click="comentarios(item)" ng-show="item.comentarios.length">
+		    	{{item.comentarios.length}} {{item.comentarios.length===1 ? 'comentário' : 'comentários'}}
+		    </span>
+		  </div>
+
+		  <div class="item border-top item-buttons">
+		  	<div class="row">
+		  		<div class="col" ng-click="kkk(item)">
+		  			<i class="icon ion-happy"></i> kkkkk
+		  		</div>
+		  		<div class="col" ng-click="putz(item)">
+		  			<i class="icon ion-sad"></i> putz
+		  		</div>
+		  		<div class="col" ng-click="comentarios(item)">
+		  			<i class="icon ion-chatbox"></i> comentar
+		  		</div>
+		  	</div>
+		  </div>
+
+		</div>
+
+	</ion-content>
+</ion-view>
